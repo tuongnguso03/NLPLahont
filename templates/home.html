@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<body>
+<div id="weightChart" style="width:100%; max-width:600px; height:500px;"></div>
+
+<script>
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+    inputArray = {{ inputArray|tojson }};
+    var data = google.visualization.arrayToDataTable(inputArray);
+
+var options = {
+  title:'keyword weights'
+};
+
+var chart = new google.visualization.BarChart(document.getElementById('weightChart'));
+  chart.draw(data, options);
+}
+</script>
+
+</body>
+</html>
